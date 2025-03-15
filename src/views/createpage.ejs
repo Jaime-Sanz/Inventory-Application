@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/header') %>
+<body>
+    <div>
+        <h1>Add your game to the site</h1>
+        <a href="/">Home</a>
+    </div>
+    <div>
+        <form action="/create" method="POST">
+            <label for="vg_name">Enter video game name:</label>
+            <input type="text" name="vg_name">
+            <label for="vg_description">Enter video game description:</label>
+            <input type="text" name="vg_description">
+            <label for="vg_rating">Enter video game rating:</label>
+            <input type="text" name="vg_rating">
+            <label for="vg_price">Enter video game price:</label>
+            <input type="text" name="vg_price">
+            <label for="vg_stock">Enter how many you will adding:</label>
+            <input type="number" name="vg_stock">
+            <button type="submit">Submit your game</button>
+        </form>
+    </div>
+</body>
+</html>
