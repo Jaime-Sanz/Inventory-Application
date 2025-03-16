@@ -43,11 +43,14 @@ export const getCreateItemsController = (req, res) => {
 
 export const postCreateItemsController = async (req, res, next) => {
     try {
-
         const errors = validationResult(req);
+
         if (!errors.isEmpty()) {
-            console.log(errors.array());
-            return next({ status: 400, message: "Validation Error", errors: errors.array() });
+            const error = new Error("Validation Error");
+            error.status = 400;
+            error.errors = errors.array();
+
+            return next(error);
         }
 
 
@@ -58,6 +61,20 @@ export const postCreateItemsController = async (req, res, next) => {
             [vg_name, vg_description, vg_rating, vg_price, vg_stock]
         );
 
+        res.redirect('/');
+    } catch (error) {
+        next(error);
+    }
+}
+
+export const postDeleteItemsController = async (req, res, next) => {
+    try {
+
+        const { id } = req.body;
+        if (!id) return res.status(400).send('Invalid request');
+        
+        const result = await pool.query('DELETE FROM games WHERE id = $1 RETURNING *', [id]);
+        
         res.redirect('/');
     } catch (error) {
         next(error);
