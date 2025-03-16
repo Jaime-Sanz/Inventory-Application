@@ -13,9 +13,13 @@
             <label for="vg_description">Enter video game description:</label>
             <input type="text" name="vg_description">
             <label for="vg_rating">Enter video game rating:</label>
-            <input type="text" name="vg_rating">
+            <select name="vg_rating">
+                <option value="E">E</option>
+                <option value="T">T</option>
+                <option value="M">M</option>
+            </select>
             <label for="vg_price">Enter video game price:</label>
-            <input type="text" name="vg_price">
+            <input type="number" name="vg_price">
             <label for="vg_stock">Enter how many you will adding:</label>
             <input type="number" name="vg_stock">
             <button type="submit">Submit your game</button>

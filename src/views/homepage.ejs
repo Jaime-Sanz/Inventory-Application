@@ -14,13 +14,17 @@
     </nav>
     <div id="items-container">
         <div>
-            <a href="">E-Ratings</a>
-            <a href="">T-Ratings</a>
-            <a href="">M-Ratings</a>
-            <a href="">Reset Filter</a>
+            <a href="/everyone">E-Ratings</a>
+            <a href="/teen">T-Ratings</a>
+            <a href="/mature">M-Ratings</a>
+            <a href="/">Reset Filter</a>
         </div>
         <div>
-
+            <ul>
+                <% games.forEach(game => { %>
+                    <li><%= game.title %> <%= game.description %> <%= game.rating %> <%= game.price%> <%= game.stock %> </li>
+                <% }); %>
+            </ul>
         </div>
     </div>
 </body>
